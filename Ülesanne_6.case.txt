@@ -1,0 +1,75 @@
+Ülesanne 6
+>>>>>>>>>>
+Koosta lihtne kalkulaator. Kasutajalt küsitakse kaks arvu ja tehtemärk(+,-,*,/) ning seejärel kuvatakse tehe koos vastusega.
+Nt.
+Sisestage esimene arv: 2,2
+Sisestage teine arv: 3,8
+Sisestage tehe: +
+Tulemus: 2,2+3,8=6,0
+
+NB! Välista et kasutaja saab saaks sisestada tähti ja selle pärast programmi kokku jooksutada.
+Programmi koostamisel tee kaks varianti. Kus ühes variandis on kasutatud if else käske ja teises variandis case käske.
+
+
+using System;
+
+namespace Ülesanne_6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            Console.WriteLine("Kalkulaator");
+            algus:
+
+            Console.WriteLine("Sisesta esimene arv ");
+            Console.Write("Palun sisesta arv: ");
+            string kasutaja1 = Console.ReadLine();
+            double arv1;
+
+            Console.WriteLine("Sisesta teine arv ");
+            Console.Write("Palun sisesta arv: ");
+            string kasutaja2 = Console.ReadLine();
+            double arv2;
+            
+            bool isNumber1 = double.TryParse(kasutaja1, out arv1);
+            bool isNumber2 = double.TryParse(kasutaja2, out arv2);
+
+            if (isNumber1 == true && isNumber2 == true)
+            {
+            algus2:
+
+                Console.WriteLine("Sisesta tehtemärk ");
+                Console.Write("Palun sisesta märk: ");
+                string kasutajam = Console.ReadLine();
+
+                switch (kasutajam)
+                {
+                    case "+":
+                        Console.WriteLine(arv1 + arv2);
+                        break;
+                    case "-":
+
+                        Console.WriteLine(arv1 - arv2);
+                        break;
+                    case "*":
+                        Console.WriteLine(arv1 * arv2);
+                        break;
+                    case "/":
+                        Console.WriteLine(arv1 / arv2);
+                        break;
+                    default:
+                        Console.WriteLine("Vale tehtemärk!");
+                        goto algus2;
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Sisesta number!");
+                goto algus;
+            }
+        }
+    }
+}

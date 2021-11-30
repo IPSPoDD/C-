@@ -1,0 +1,59 @@
+Ülesanne 4
+>>>>>>>>>>
+Koosta programm, mis küsib kasutajalt ristküliku lähiskülgede pikkused ning väljastab ekraanile ristküliku ümbermõõdu ja pindala.
+Kuva ristkülik kasutajale, kasutades ristküliku loomiseks X tähti.
+Nt.
+XXXXXXXX
+X      X
+X      X
+X      X
+X      X
+X      X
+XXXXXXXX
+NB! Välista et kasutaja saab saaks sisestada tähti ja selle pärast programmi kokku jooksutada.
+
+using System;
+
+
+namespace Ülesanne_4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        algus:
+
+            Console.WriteLine("Vali ristküliku pikkust");
+
+            Console.Write("Palun sisesta pikkus: ");
+
+
+            string kasutaja = Console.ReadLine();
+
+            int r;
+
+            bool isNumber = int.TryParse(kasutaja, out r);
+
+            if (isNumber == true)
+            {
+                var str = new String('X', r);
+                Console.WriteLine(str);
+                int i = 0;
+                
+                while (i != r - 2)
+                {
+                    Console.WriteLine("x" + new string(' ', r - 2) + "X");
+                    i++;
+                }
+                Console.WriteLine(str);
+                Console.ReadKey();
+            }
+
+            else
+            {
+                Console.WriteLine("Sisesta number!");
+                goto algus;
+            }
+        }
+    }
+}

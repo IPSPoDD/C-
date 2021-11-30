@@ -1,0 +1,24 @@
+Ülesanne 3
+>>>>>>>>>>>>
+Ruudu sees asub suur ring ja ringi sees asub 2x väiksem ring. Suure ringi raadius on 10.
+Leia ja väljasta ekraanile ruudu pindala, ruudu ümbermõõt, ringide pindala, ringide ümbermõõt.
+
+using System;
+
+
+namespace Ülesanne_3_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Ruudu sees asub suur ring ja ringi sees asub 2x väiksem ring. Suure ringi raadius on 10.");
+            Console.WriteLine("Ruudu pindala = " + Math.Pow((2 * 10), 2));
+            Console.WriteLine("Ruudu ümbermõõt = " + (2 * 10) * 4);
+            Console.WriteLine("Suure ringi pindala = " + Math.PI * Math.Pow(10, 2));
+            Console.WriteLine("Väikse ringi pindala = " + Math.PI * Math.Pow(5, 2));
+            Console.WriteLine("Suure ringi ümbermõõt = " + (2 * Math.PI * 10));
+            Console.WriteLine("Väikse ringi ümbermõõt = " + (2 * Math.PI * 5));
+        }
+    }
+}

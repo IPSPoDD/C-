@@ -1,0 +1,71 @@
+Ülesanne 5
+>>>>>>>>>>
+Koosta programm, mis küsib kasutajalt nime ja vanust ning väljastab ekraanile nimelise tervituse koos tekstiga, mis ütleb, kas
+tegemist on kooliealise (7-18-aastase) inimesega või lasteaias käiva lapsega, täiskasvananuga või eakaga.
+Salvesta iga programmi kasutamise järel andmed *.txt dokumenti ja kui programmi kasutaja soovib näha talletatud andmeid, siis talle kuvatakse need.
+
+
+using System;
+using System.IO;
+
+namespace Ülesanne_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("Kuidas mulle sind nimetada? ");
+            Console.Write("Palun sisesta oma nimi: ");
+            string kasutaja = Console.ReadLine();
+
+        algus:
+
+            Console.WriteLine("Ja kui vana sa oled? ");
+            Console.Write("Palun sisesta oma vanus: ");
+            //int vanus = int.Parse(Console.ReadLine());
+
+            string vanus = Console.ReadLine();
+
+            int age;
+
+            bool isNumber = int.TryParse(vanus, out age);
+
+            if (isNumber == true)
+            {
+                //int aasta = Int16.Parse(vanus);
+                string text = "";
+                if (age < 7)
+                {
+                    Console.WriteLine("Tegemist on lasteaias käiva lastega.");
+                    text = "Tegemist on lasteaias käiva lastega." + "Nimi: " + kasutaja + ". Vanus: " + vanus;
+                }
+                else if (age > 6 && age < 19)
+                {
+                    Console.WriteLine("Tegemist on lasteaias kooliealisega.");
+                    text = "Tegemist on lasteaias kooliealisega." + "Nimi: " + kasutaja + ". Vanus: " + vanus;
+                }
+                else if (age > 18 && age < 60)
+                {
+                    Console.WriteLine("Tegemist on lasteaias täiskasvanuga.");
+                    text = "Tegemist on lasteaias täiskasvanuga." + "Nimi: " + kasutaja + ". Vanus: " + vanus;
+                }
+                else if (age > 59)
+                {
+                    Console.WriteLine("Tegemist on lasteaias eakaga.");
+                    text = "Tegemist on lasteaias eakaga." + "Nimi: " + kasutaja + ". Vanus: " + vanus;
+                }
+                File.WriteAllText("C:/Users/bonda/Desktop/test.txt", text);
+                Console.WriteLine("Tekst oli sisestatud.");
+            }
+
+            else
+            {
+                Console.WriteLine("Sisesta number!");
+                goto algus;
+            }
+
+            
+        }
+    }
+}

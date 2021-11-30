@@ -1,0 +1,23 @@
+Ülesanne 1
+>>>>>>>>>>
+Kirjuta programm: mis sind tervitab. Küsib kasutaja nime ja vanust.
+Peale andmete sisestamist, tervitab programm kasutajat nimeliselt, ütleb tema vanuse ja arvutab välja kasutaja sünni aasta.
+
+using System;
+
+namespace Ülesanne_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Kuidas mulle sind nimetada? ");
+            Console.Write("Palun sisesta oma nimi: ");
+            string kasutaja = Console.ReadLine();
+            Console.WriteLine("Ja kui vana sa oled? ");
+            Console.Write("Palun sisesta oma vanus: ");
+            int vanus = int.Parse(Console.ReadLine());
+            Console.WriteLine("Tere, " + kasutaja + "! Sa oled " + vanus + " aastat vana.");
+        }
+    }
+}

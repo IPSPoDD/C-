@@ -1,0 +1,29 @@
+Ülesanne 2
+>>>>>>>>>>
+Koosta programm on öeldud tehte: ruutjuur3-st + (4 + 10) + 4 / (4 - 2) * 7 vastuse?
++Kuidas mõjutab sulgude kasutamine/kasutamata jätmine c# tööd?
++Katseta erinevaid kombinatsioone paralleelselt ning lisa ka selgitavad tekstid, et väljund oleks arusaadav.
+
+using System;
+
+
+namespace Ülesanne_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Sulgudega!");
+            Console.WriteLine("Ruutjuur3-st + (4 + 10) + 4 / (4 - 2) * 7 ");
+            Console.WriteLine("Vastus: " + Math.Sqrt(3) + (4 + 10) + 4 / (4 - 2) * 7);
+
+            Console.WriteLine("Sulgudeta!");
+            Console.WriteLine("Ruutjuur3-st + 4 + 10 + 4 / 4 - 2 * 7 ");
+            Console.WriteLine("Vastus: " + (Math.Sqrt(3) + 4 + 10 + 4 / 4 - 2 * 7));
+
+            Console.WriteLine("Ehk siis, sulgudega sa muudat arvutamise järjekorda." +
+                "Sulgudega algul arvutatakse see, mis on suludes ja siis läheb vasakult " +
+                "paremale. Ilma suludeta kohe läheb vasakult paremale.");
+        }
+    }
+}

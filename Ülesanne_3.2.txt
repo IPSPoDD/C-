@@ -1,0 +1,46 @@
+Ülesanne 3
+>>>>>>>>>>>>
+Ruudu sees asub ring. Ringi raadiust saab kasutaja sisestada. (sisestatav väärtus võib olla ka koma kohaga)
+(r - pool ruudu pikkusest)
+Leia ja väljasta ekraanile ruudu pindala, ruudu ümbermõõt, ringi pindala, ringi ümbermõõt.
+
+NB! Välista et kasutaja saab saaks sisestada tähti ja selle pärast programmi kokku jooksutada.
+
+using System;
+
+
+namespace Ülesanne_3_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            algus:
+            
+            Console.WriteLine("Vali ringi raadius");
+
+            Console.Write("Palun sisesta radius: ");
+            
+            
+            string kasutaja = Console.ReadLine();
+
+            int r;
+
+            bool isNumber = int.TryParse(kasutaja, out r);
+
+            if (isNumber == true)
+            {
+                Console.WriteLine("Ruudu pindala = " + Math.Pow((2 * r), 2));
+                Console.WriteLine("Ruudu ümbermõõt = " + (2 * r) * 4);
+                Console.WriteLine("Ringi pindala = " + Math.PI * Math.Pow(r, 2));
+                Console.WriteLine("Ringi ümbermõõt = " + (2 * Math.PI * r));
+            }
+
+            else
+            {
+                Console.WriteLine("Sisesta number!");
+                goto algus;
+            }
+        }
+    }
+}
