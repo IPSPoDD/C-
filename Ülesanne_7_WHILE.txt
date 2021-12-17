@@ -1,0 +1,74 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Ülesanne_7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var intList = new List<int>();
+            int a = 0;
+            while (a < 6)
+            {
+            algus:
+                a++;
+                Console.Write("Palun sisesta arv: ");
+                string kasutaja = Console.ReadLine();
+
+                int arv;
+
+                bool isNumber = int.TryParse(kasutaja, out arv);
+
+                if (kasutaja.Length == 0)
+                {
+                    goto arvutamine;
+                }
+
+                if (isNumber == true)
+                {
+                    intList.Add(arv);
+                }
+
+                else
+                {
+                    Console.WriteLine("Sisesta number!");
+                    goto algus;
+                }
+
+                Console.WriteLine("Number oli: " + arv);
+
+            }
+            
+        arvutamine:
+
+            // Summeerimine
+            int sum = intList.ToArray().Sum();
+            Console.WriteLine("Numbrite summa on: " + sum);
+
+            // Korrutamine
+            int korrutamine = 1;
+
+            for (int i = 0; i < intList.Count; i++)
+            {
+                //Calculate Product
+                korrutamine *= intList[i];
+            }
+            Console.WriteLine("Numbrite korrutis on: " + korrutamine);
+
+            // Jagamine
+            double Jagamine = intList[0];
+
+            for (int i = 1; i < intList.Count; i++)
+            {
+                //Calculate Product
+                Jagamine /= intList[i];
+            }
+            Console.WriteLine("Numbrite jagatis on: " + Jagamine);
+
+
+        }
+        
+    }
+}
